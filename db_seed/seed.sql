@@ -43,7 +43,7 @@ VALUES
     ('What does RDBMS stand for?', 'RDBMS stands for Relational Database Management System', 'SQL'),
     ('Jumps out of a loop and start at the top', 'continue',  'JavaScript'),
     ('Terminates a switch or a loop', 'continue', 'JavaScript'),
-    ('Executes a block of statements, and repeats the block, while a condition is true', 'do ... while', 'JavaScript')
+    ('Executes a block of statements, and repeats the block, while a condition is true', 'do ... while', 'JavaScript'),
     ('What is the capital of Hawaii?', 'Honolulu', 'us-capitals'),
     ('What is the capital of California?', 'Sacramento', 'us-capitals'),
     ('What is the capital of Texas?', 'Austin', 'us-capitals'),
@@ -54,4 +54,4 @@ VALUES
     ('What is the capital of Alaska?', 'Juneau', 'us-capitals'),
     ('What is the capital of Nebraska?', 'Lincoln', 'us-capitals'),
     ('What is the capital of Ohio?', 'Columbus', 'us-capitals'),
-    ('What is the capital of Oregon?', 'Salem', 'us-capitals'),
+    ('What is the capital of Oregon?', 'Salem', 'us-capitals')
