@@ -33,7 +33,9 @@ CREATE TABLE Cards (
     id SERIAL PRIMARY KEY,
     front VARCHAR(255),
     back VARCHAR(255),
-    cardset VARCHAR(255)
+    cardset VARCHAR(255),
+    createdAt timestamp,
+    updatedAt timestamp
 );
 
 INSERT INTO
