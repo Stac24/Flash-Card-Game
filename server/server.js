@@ -9,7 +9,7 @@ app.use(cors());
 app.use(express.json());
 
 app.get("/", cards.test);
-app.get("/login", user.test);
+app.get("/login", user.login);
 
 //listening on port
 app.listen(port, () => {
