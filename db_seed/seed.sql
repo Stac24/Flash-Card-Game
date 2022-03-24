@@ -10,8 +10,6 @@ CREATE DATABASE flashcard_db;
 
 \c flashcard_db;
 
-CREATE extension IF NOT EXISTS "uuid-ossp";
-
 CREATE TABLE Users (
     id SERIAL PRIMARY KEY,
     email VARCHAR(255) NOT NULL,
@@ -46,3 +44,14 @@ VALUES
     ('Jumps out of a loop and start at the top', 'continue',  'JavaScript'),
     ('Terminates a switch or a loop', 'continue', 'JavaScript'),
     ('Executes a block of statements, and repeats the block, while a condition is true', 'do ... while', 'JavaScript')
+    ('What is the capital of Hawaii?', 'Honolulu', 'us-capitals'),
+    ('What is the capital of California?', 'Sacramento', 'us-capitals'),
+    ('What is the capital of Texas?', 'Austin', 'us-capitals'),
+    ('What is the capital of New York?', 'New York City', 'us-capitals'),
+    ('What is the capital of New Jersey?', 'Trenton', 'us-capitals'),
+    ('What is the capital of Pennsylvania?', 'Philadelphia', 'us-capitals'),
+    ('What is the capital of Utah?', 'Salt Lake City', 'us-capitals'),
+    ('What is the capital of Alaska?', 'Juneau', 'us-capitals'),
+    ('What is the capital of Nebraska?', 'Lincoln', 'us-capitals'),
+    ('What is the capital of Ohio?', 'Columbus', 'us-capitals'),
+    ('What is the capital of Oregon?', 'Salem', 'us-capitals'),
