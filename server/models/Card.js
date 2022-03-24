@@ -1,13 +1,16 @@
 const { DataTypes } = require("@sequelize/core");
 const sequelize = require("./index.js").sequelize;
 
-const User = sequelize.define("user", {
-  email: {
+const Card = sequelize.define("card", {
+  front: {
     type: DataTypes.STRING,
     allowNull: false,
   },
-  stars: {
-    type: DataTypes.INTEGER,
+  back: {
+    type: DataTypes.STRING,
+  },
+  cardset: {
+    type: DataTypes.STRING,
   },
 });
 
@@ -15,16 +18,16 @@ const run = async () => {
   try {
     await sequelize.authenticate();
     console.log("Connection has been established successfully.");
-    const users = await User.findAll();
+    const users = await Card.findAll();
     console.log(
       users.forEach((user) => {
         console.log(
           "User",
-          user.dataValues.id,
+          user.dataValues.front,
           "Email",
-          user.dataValues.email,
+          user.dataValues.back,
           "Stars",
-          user.dataValues.stars
+          user.dataValues.cardset
         );
       })
     );
