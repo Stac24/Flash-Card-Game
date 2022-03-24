@@ -7,3 +7,5 @@ cd server
 npm install
 npm run server
 ```
+
+.env.dev is an example for .env
