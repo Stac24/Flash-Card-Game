@@ -8,8 +8,8 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-app.get("/", cards.test);
-app.get("/login", user.login);
+app.get("/getcards", cards.getcards);
+app.get("/users", user.login);
 
 //listening on port
 app.listen(port, () => {
