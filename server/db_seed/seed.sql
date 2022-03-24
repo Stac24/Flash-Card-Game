@@ -30,7 +30,7 @@ VALUES
     ('dan@gmail.com', 'password123');
 
 CREATE TABLE Cards (
-    id INTEGER PRIMARY KEY autoincrement,
+    id SERIAL PRIMARY KEY,
     front VARCHAR(255),
     back VARCHAR(255),
     cardset VARCHAR(255)
@@ -43,4 +43,4 @@ VALUES
     ('What does RDBMS stand for?', 'RDBMS stands for Relational Database Management System', 'SQL'),
     ('Jumps out of a loop and start at the top', 'continue',  'JavaScript'),
     ('Terminates a switch or a loop', 'continue', 'JavaScript'),
-    ('Executes a block of statements, and repeats the block, while a condition is true', 'do ... while', 'JavaScript'),
+    ('Executes a block of statements, and repeats the block, while a condition is true', 'do ... while', 'JavaScript')
