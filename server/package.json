@@ -5,7 +5,8 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "server": "nodemon server.js"
+    "server": "nodemon server.js",
+    "seed:db": "psql postgres < db_seed/create_user.sql < db_seed/seed.sql"
   },
   "keywords": [],
   "author": "",
