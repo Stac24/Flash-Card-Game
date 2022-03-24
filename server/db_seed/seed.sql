@@ -28,3 +28,19 @@ VALUES
     ('bob@gmail.com', '456456'),
     ('carol@gmail.com', 'asdasd'),
     ('dan@gmail.com', 'password123');
+
+CREATE TABLE Cards (
+    id INTEGER PRIMARY KEY autoincrement,
+    front VARCHAR(255),
+    back VARCHAR(255),
+    cardset VARCHAR(255)
+);
+
+INSERT INTO
+    Cards (front, back, cardset)
+VALUES
+    ('What is the command for adding columns to a table?', 'ALTER TABLE', 'SQL'),
+    ('What does RDBMS stand for?', 'RDBMS stands for Relational Database Management System', 'SQL'),
+    ('Jumps out of a loop and start at the top', 'continue',  'JavaScript'),
+    ('Terminates a switch or a loop', 'continue', 'JavaScript'),
+    ('Executes a block of statements, and repeats the block, while a condition is true', 'do ... while', 'JavaScript'),
