@@ -12,6 +12,9 @@ const Card = sequelize.define("card", {
   cardset: {
     type: DataTypes.STRING,
   },
+  image_url: {
+    type: DataTypes.STRING,
+  },
 });
 
 exports.getcards = async (req, res) => {
