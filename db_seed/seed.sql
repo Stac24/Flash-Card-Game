@@ -11,7 +11,8 @@ CREATE DATABASE flashcard_db;
 \c flashcard_db;
 
 CREATE TABLE Users (
-    id SERIAL PRIMARY KEY,
+    id SERIAL PRIMARY KEY, 
+    name VARCHAR(255) NOT NULL,
     email VARCHAR(255) NOT NULL,
     password VARCHAR(255) NOT NULL,
     stars INTEGER DEFAULT 0,
@@ -20,12 +21,12 @@ CREATE TABLE Users (
 );
 
 INSERT INTO
-    Users (email, password)
+    Users (name, email, password)
 VALUES
-    ('alice@gmail.com', '123123'),
-    ('bob@gmail.com', '456456'),
-    ('carol@gmail.com', 'asdasd'),
-    ('dan@gmail.com', 'password123');
+    ('Alice','alice@gmail.com', '123123'),
+    ('Bob','bob@gmail.com', '456456'),
+    ('Carol','carol@gmail.com', 'asdasd'),
+    ('Dan','dan@gmail.com', 'password123');
 
 CREATE TABLE Cards (
     id SERIAL PRIMARY KEY,
