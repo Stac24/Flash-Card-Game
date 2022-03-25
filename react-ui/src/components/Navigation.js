@@ -12,7 +12,7 @@ function Navigation() {
   const show = menu ? "show" : "";
 
   return (
-    <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav className="navbar navbar-expand-md navbar-dark bg-dark px-5 py-3">
       <a class="navbar-brand" href="/">
         <img src="./high-voltage.png" width="30" height="30" alt="" />
       </a>
