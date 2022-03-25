@@ -1,24 +1,70 @@
-const { DataTypes } = require("@sequelize/core");
+const { Model, DataTypes } = require("@sequelize/core");
 const sequelize = require("../models/index.js").sequelize;
+const bcrypt = require("bcryptjs");
+const jwt = require("jsonwebtoken");
+require("dotenv").config();
+const oneMonth = 1000 * 60 * 60 * 24 * 30;
 
-const User = sequelize.define("user", {
-  email: {
-    type: DataTypes.STRING,
-    allowNull: false,
+class User extends Model {
+  static isCorrectPassword(inputPassword, dbPassword) {
+    return inputPassword === dbPassword;
+  }
+}
+
+User.init(
+  {
+    name: {
+      type: DataTypes.STRING,
+      validate: {
+        notEmpty: true,
+      },
+    },
+    email: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        notEmpty: true,
+      },
+    },
+    stars: {
+      type: DataTypes.INTEGER,
+    },
+    password: {
+      type: DataTypes.STRING,
+      validate: {
+        notEmpty: true,
+      },
+    },
   },
-  stars: {
-    type: DataTypes.INTEGER,
-  },
-});
+  {
+    sequelize,
+    modelName: "user",
+  }
+);
 
 exports.login = async (req, res) => {
   try {
-    await sequelize.authenticate();
-    console.log("Connection has been established successfully.");
-    const users = await User.findAll({ raw: true });
-    // console.log(users);
-    res.status(200).send(users);
+    let { email, password } = req.body;
+    const user = await User.findOne({ where: { email } });
+    if (!user) throw new Error("User not found");
+    // check password
+    if (await User.isCorrectPassword(password, user.password)) {
+      console.log("password ok");
+      let token = jwt.sign({ id: user.id }, process.env.SECRET, {
+        expiresIn: oneMonth,
+      });
+      res.cookie("token", token, {
+        signed: true,
+        maxAge: oneMonth,
+        httpOnly: true,
+      });
+      let response = ({ id, email, name } = user);
+      response.dataValues.token = token;
+      response.dataValues.password = "";
+      return res.json(response);
+    }
   } catch (err) {
     console.log(err);
+    res.status(401).json({ message: "Incorrect credentials" });
   }
 };
