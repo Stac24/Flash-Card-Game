@@ -1,9 +1,11 @@
 /* 
 following tutorial for auth0 router setup
 */
-
+import * as flashCard from '../models/index.js'
+import express from 'express';
 const { auth } = require('express-openid-connect');
 const { requiresAuth } = require('express-openid-connect');
+const app = express()
 
 const config = {
   authRequired: false,
@@ -14,7 +16,7 @@ const config = {
   issuerBaseURL: 'https://dev-5pscksgz.us.auth0.com'
 };
 
-App.use(auth(config)); // "auth router attaches login, /logout, and /callback routes to the baseURL"
+app.use(auth(config)); // "auth router attaches login, /logout, and /callback routes to the baseURL"
 
 
 /*
