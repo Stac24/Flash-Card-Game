@@ -11,7 +11,8 @@ CREATE DATABASE flashcard_db;
 \c flashcard_db;
 
 CREATE TABLE Users (
-    id SERIAL PRIMARY KEY,
+    id SERIAL PRIMARY KEY, 
+    name VARCHAR(255) NOT NULL,
     email VARCHAR(255) NOT NULL,
     password VARCHAR(255) NOT NULL,
     stars INTEGER DEFAULT 0,
@@ -20,12 +21,12 @@ CREATE TABLE Users (
 );
 
 INSERT INTO
-    Users (email, password)
+    Users (name, email, password)
 VALUES
-    ('alice@gmail.com', '123123'),
-    ('bob@gmail.com', '456456'),
-    ('carol@gmail.com', 'asdasd'),
-    ('dan@gmail.com', 'password123');
+    ('Alice','alice@gmail.com', '123123'),
+    ('Bob','bob@gmail.com', '456456'),
+    ('Carol','carol@gmail.com', 'asdasd'),
+    ('Dan','dan@gmail.com', 'password123');
 
 CREATE TABLE Cards (
     id SERIAL PRIMARY KEY,
@@ -42,8 +43,18 @@ INSERT INTO
 VALUES
     ('What is the command for adding columns to a table?', 'ALTER TABLE', 'SQL'),
     ('What does RDBMS stand for?', 'RDBMS stands for Relational Database Management System', 'SQL'),
+    ('What is the keyword to sort data in ascending order?', 'ASC keyword', 'SQL'),
+    ('What is the keyword to select data from a table in SQL?', 'SELECT keyword', 'SQL'),
+    ('What does SQL stand for?', 'Structured Query Language', 'SQL'),
+    ('What is ECMAScript', 'ECMAScript is a Standard for a scripting languages. It provides the specifications for languages like Javascript and Jscript.',  'JavaScript'),
+    ('What is Just-In-Time compilation', 'Just in time compilation means the code is converted to machine code all at once and then executed immediately such that there is no portable file like in Java.',  'JavaScript'),
+    ('What are JavaScript primitive data types', 'A primitive data type is data that isnt an object and has no methods. i.e. Number Null Undefined Boolean BigInt String Symbol',  'JavaScript'),
+    ('What is dynamic typing', 'Dynamic typing means that you dont need to specify what type the variable is, in contrast to a statically typed language.',  'JavaScript'),
+    ('What is immutability?', 'Immutability means something cannot change once they are created.',  'JavaScript'),
     ('Jumps out of a loop and start at the top', 'continue',  'JavaScript'),
-    ('Terminates a switch or a loop', 'continue', 'JavaScript'),
+    ('Terminates a switch or a loop', 'break', 'JavaScript'),
+    ('What is the difference between Set and array', 'Set can only contain unique values of any type; array is a 0 indexed list of values, which can be accessed by their index.', 'JavaScript'),
+    ('What are 3 ways to declare a function in JavaScript', '1. Function declaration 2. Function expression 3. Arrow Function (ES6)', 'JavaScript'),
     ('Executes a block of statements, and repeats the block, while a condition is true', 'do ... while', 'JavaScript'),
     ('What is the capital of California?', 'Sacramento', 'us-capitals'),
     ('What is the capital of New York?', 'New York City', 'us-capitals'),
