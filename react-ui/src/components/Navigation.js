@@ -23,17 +23,19 @@ function Navigation() {
         className={"collapse navbar-collapse " + show}
         id="navbarSupportedContent"
       >
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item active">
+        <ul className="navbar-nav mr-auto">
+          <li className="nav-item active">
             <Link to="/" exact>
-              {" "}
-              Home Page{" "}
+              Home Page
             </Link>
           </li>
-          <li class="nav-item">
+          <li className="nav-item">
             <Link to="create"> Create Flash Cards </Link>
           </li>
         </ul>
+        <Link className="ms-auto" to="login">
+          Login
+        </Link>
       </div>
     </nav>
   );
