@@ -17,7 +17,9 @@ function HomePage() {
     return (
         <>
             <h1>Home Page</h1>
-            <Flashcardgroup flashcards={flashcards}></Flashcardgroup>
+            <div className='container'>
+                <Flashcardgroup flashcards={flashcards}></Flashcardgroup>
+            </div>
         </>
     );
 }
