@@ -32,6 +32,9 @@ function Navigation() {
           <li className="nav-item">
             <Link to="create"> Create Flash Cards </Link>
           </li>
+          <li className = "nav-item">
+            <Link to="highScores"> High Scores </Link>
+          </li>
         </ul>
         <Link className="ms-auto" to="login">
           Login

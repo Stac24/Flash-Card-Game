@@ -10,7 +10,7 @@ const sequelize = new Sequelize(
       updatedAt: "updatedat",
     },
     host: "localhost",
-    dialect: "postgres",
+    dialect: "postgres"
   }
 );
 

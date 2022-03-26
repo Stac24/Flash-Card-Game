@@ -1,7 +1,7 @@
 import React from 'react';
 import HighScore from './HighScore';
 
-function HighScoresTables ({ players }) {
+function HighScoresTable ({ players }) {
     return (
         <table>
             <thead>
@@ -12,8 +12,11 @@ function HighScoresTables ({ players }) {
                 </tr>
             </thead>
             <tbody>
-                {players.map((player,i) => <HighScore )}
+                {players.map((player,i) => <HighScore player = {player}
+                key = {i}/>)}
             </tbody>
         </table>
     )
 }
+
+export default HighScoresTable
