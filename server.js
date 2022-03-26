@@ -13,6 +13,8 @@ app.use(cookieParser(process.env.SECRET));
 
 app.get("/getcards", cards.getcards);
 app.post("/login", user.login);
+app.post("/createcard", cards.createcard);
+
 
 //listening on port
 app.listen(port, () => {

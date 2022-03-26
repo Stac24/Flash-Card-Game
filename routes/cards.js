@@ -28,3 +28,15 @@ exports.getcards = async (req, res) => {
     console.error("Unable to connect to the database:", error);
   }
 };
+
+exports.createcard = async (req,res) => {
+  const { front, back, cardset } = req.body
+
+  try{
+    const card = await Card.create({ front, back, cardset })
+    return res.status(201).json(card)
+  } catch(err){
+    console.log(err)
+    return res.status(500).json(err)
+  }
+};
