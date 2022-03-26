@@ -7,6 +7,7 @@ import Navigation from './components/Navigation';
 import Login from './pages/Login';
 import Dashboard from './pages/Dashboard';
 import HighScores from './pages/HighScores';
+import PlayRound from './pages/PlayRound';
 
 function App() {
   const [isAuthenticated, setisAuthenticated] = useState(false);
@@ -26,6 +27,9 @@ function App() {
             </Route>
             <Route path="/create">
               <CreateCardPage />
+            </Route>
+            <Route path="/play-round">
+              <PlayRound />
             </Route>
             <Route path="/high-scores" exact>
               <HighScores />

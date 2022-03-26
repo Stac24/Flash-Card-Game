@@ -26,6 +26,9 @@ function Navigation({ isAuthenticated, setAuth }) {
             <Nav.Link as={Link} to="/create">
               Create Flash Cards
             </Nav.Link>
+            <Nav.Link as={Link} to="/play-round">
+              Play Round
+            </Nav.Link>
             <Nav.Link as={Link} to="/high-scores">
               High Scores
             </Nav.Link>
