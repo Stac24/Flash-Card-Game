@@ -1,7 +1,7 @@
 const { Model, DataTypes } = require('@sequelize/core');
-const bcrypt = require('bcryptjs');
+// const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
-const { sequelize } = require('../models/index.js');
+const { sequelize } = require('../models/index');
 require('dotenv').config();
 
 const oneMonth = 1000 * 60 * 60 * 24 * 30;
@@ -30,6 +30,9 @@ User.init(
     stars: {
       type: DataTypes.INTEGER,
     },
+    rubies: {
+      type: DataTypes.INTEGER,
+    },
     password: {
       type: DataTypes.STRING,
       validate: {
@@ -50,7 +53,7 @@ exports.login = async (req, res) => {
     if (!user) throw new Error('User not found');
     // check password
     if (await User.isCorrectPassword(password, user.password)) {
-      console.log('password ok');
+      // console.log('password ok');
       const token = jwt.sign({ id: user.id }, process.env.SECRET, {
         expiresIn: oneMonth,
       });
@@ -59,7 +62,7 @@ exports.login = async (req, res) => {
         maxAge: oneMonth,
         httpOnly: true,
       });
-      const response = ({ id, email, name } = user);
+      const response = ({ id, email } = user);
       response.dataValues.token = token;
       response.dataValues.password = '';
       return res.json(response);

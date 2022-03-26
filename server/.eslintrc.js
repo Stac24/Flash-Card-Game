@@ -11,5 +11,8 @@ module.exports = {
     ecmaVersion: 13,
   },
   rules: {
+    'consistent-return': 'off',
+    'prefer-const': 'off',
+    'no-multi-assign': 'off',
   },
 };
