@@ -1,8 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Navbar, Container, Nav } from 'react-bootstrap';
+import {
+  Navbar, Container, Nav, NavDropdown,
+} from 'react-bootstrap';
 
-function Navigation() {
+function Navigation({ isAuthenticated, setAuth }) {
+  const logout = () => {
+    localStorage.removeItem('token');
+    setAuth(false);
+  };
   return (
     <Navbar className="mb-3" bg="dark" variant="dark" expand="md">
       <Container>
@@ -20,9 +26,16 @@ function Navigation() {
             </Nav.Link>
           </Nav>
           <Nav className="ms-auto">
-            <Nav.Link as={Link} to="/login">
-              Login
-            </Nav.Link>
+            {isAuthenticated
+              ? (
+                <NavDropdown title={`Welcome ${localStorage.getItem('name')}`} id="basic-nav-dropdown">
+                  <NavDropdown.Item onClick={logout} href="#action/3.1">Logout</NavDropdown.Item>
+                </NavDropdown>
+              ) : (
+                <Nav.Link as={Link} to="/login">
+                  Login
+                </Nav.Link>
+              ) }
           </Nav>
         </Navbar.Collapse>
       </Container>
