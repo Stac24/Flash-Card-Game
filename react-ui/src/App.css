@@ -10,6 +10,10 @@ li {
   padding-left: 10px;
 }
 
+#navbarSupportedContent {
+  transition: height 1.5s ease;
+}
+
 .App {
   text-align: center;
 }
