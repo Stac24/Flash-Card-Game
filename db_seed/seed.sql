@@ -16,6 +16,7 @@ CREATE TABLE Users (
     email VARCHAR(255) NOT NULL,
     password VARCHAR(255) NOT NULL,
     stars INTEGER DEFAULT 0,
+    rubies INTEGER DEFAULT 0,
     createdAt timestamp,
     updatedAt timestamp
 );
