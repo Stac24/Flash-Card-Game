@@ -5,6 +5,7 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js",
     "server": "nodemon server.js",
     "seed:db": "psql postgres < db_seed/seed.sql",
     "readme": "readme package.json > README-dependencies.md"

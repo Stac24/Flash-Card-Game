@@ -1,8 +1,9 @@
-const { Model, DataTypes } = require("@sequelize/core");
-const sequelize = require("../models/index.js").sequelize;
-const bcrypt = require("bcryptjs");
-const jwt = require("jsonwebtoken");
-require("dotenv").config();
+const { Model, DataTypes } = require('@sequelize/core');
+// const bcrypt = require('bcryptjs');
+const jwt = require('jsonwebtoken');
+const { sequelize } = require('../models/index');
+require('dotenv').config();
+
 const oneMonth = 1000 * 60 * 60 * 24 * 30;
 
 class User extends Model {
@@ -29,6 +30,9 @@ User.init(
     stars: {
       type: DataTypes.INTEGER,
     },
+    rubies: {
+      type: DataTypes.INTEGER,
+    },
     password: {
       type: DataTypes.STRING,
       validate: {
@@ -38,33 +42,33 @@ User.init(
   },
   {
     sequelize,
-    modelName: "user",
-  }
+    modelName: 'user',
+  },
 );
 
 exports.login = async (req, res) => {
   try {
     let { email, password } = req.body;
     const user = await User.findOne({ where: { email } });
-    if (!user) throw new Error("User not found");
+    if (!user) throw new Error('User not found');
     // check password
     if (await User.isCorrectPassword(password, user.password)) {
-      console.log("password ok");
-      let token = jwt.sign({ id: user.id }, process.env.SECRET, {
+      // console.log('password ok');
+      const token = jwt.sign({ id: user.id }, process.env.SECRET, {
         expiresIn: oneMonth,
       });
-      res.cookie("token", token, {
+      res.cookie('token', token, {
         signed: true,
         maxAge: oneMonth,
         httpOnly: true,
       });
-      let response = ({ id, email, name } = user);
+      const response = ({ id, email } = user);
       response.dataValues.token = token;
-      response.dataValues.password = "";
+      response.dataValues.password = '';
       return res.json(response);
     }
   } catch (err) {
     console.log(err);
-    res.status(401).json({ message: "Incorrect credentials" });
+    res.status(401).json({ message: 'Incorrect credentials' });
   }
 };
