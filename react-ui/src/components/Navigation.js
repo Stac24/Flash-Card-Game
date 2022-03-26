@@ -1,44 +1,33 @@
-import React, { useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
+import { Navbar, Container, Nav } from "react-bootstrap";
 
-function Navigation() {
-  const [menu, setMenu] = useState(false);
-
-  const toggleMenu = () => {
-    setMenu(!menu);
-    console.log(menu, show);
-  };
-
-  const show = menu ? "show" : "";
-
+const Navigation = () => {
   return (
-    <nav className="navbar navbar-expand-md navbar-dark bg-dark px-5 py-3">
-      <a class="navbar-brand" href="/">
-        <img src="./high-voltage.png" width="30" height="30" alt="" />
-      </a>
-      <button className="navbar-toggler" type="button" onClick={toggleMenu}>
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div
-        className={"collapse navbar-collapse " + show}
-        id="navbarSupportedContent"
-      >
-        <ul className="navbar-nav mr-auto">
-          <li className="nav-item active">
-            <Link to="/" exact>
-              Home Page
-            </Link>
-          </li>
-          <li className="nav-item">
-            <Link to="create"> Create Flash Cards </Link>
-          </li>
-        </ul>
-        <Link className="ms-auto" to="login">
-          Login
-        </Link>
-      </div>
-    </nav>
+    <Navbar bg="dark" variant="dark" expand="md">
+      <Container>
+        <Navbar.Brand as={Link} to="/">
+          <img src="./high-voltage.png" width="30" height="30" alt="" />
+        </Navbar.Brand>
+        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Collapse id="basic-navbar-nav">
+          <Nav className="me-auto">
+            <Nav.Link as={Link} to="/">
+              Home
+            </Nav.Link>
+            <Nav.Link as={Link} to="/create">
+              Create Flash Cards
+            </Nav.Link>
+          </Nav>
+          <Nav className="ms-auto">
+            <Nav.Link as={Link} to="/login">
+              Login
+            </Nav.Link>
+          </Nav>
+        </Navbar.Collapse>
+      </Container>
+    </Navbar>
   );
-}
+};
 
 export default Navigation;
