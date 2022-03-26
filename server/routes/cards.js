@@ -17,7 +17,7 @@ const Card = sequelize.define('card', {
   },
 });
 
-exports.getcards = async (req, res) => {
+exports.getCards = async (req, res) => {
   try {
     const cards = await Card.findAll({ raw: true });
     // console.log(cards);
@@ -28,11 +28,13 @@ exports.getcards = async (req, res) => {
   }
 };
 
-exports.createcard = async (req, res) => {
+exports.createCard = async (req, res) => {
   const { front, back, cardSet } = req.body;
 
   try {
-    const card = await Card.create({ front:front, back:back, cardset:cardSet, image_url: null  });
+    const card = await Card.create({
+      front, back, cardset: cardSet, image_url: null,
+    });
     return res.status(201).json(card);
   } catch (err) {
     // console.log(err);

@@ -16,18 +16,24 @@ CREATE TABLE Users (
     email VARCHAR(255) NOT NULL,
     password VARCHAR(255) NOT NULL,
     stars INTEGER DEFAULT 0,
-    rubies INTEGER DEFAULT 0,
+    gems INTEGER DEFAULT 0,
     createdAt timestamp,
     updatedAt timestamp
 );
 
 INSERT INTO
-    Users (name, email, password)
+    Users (name, email, password, stars)
 VALUES
-    ('Alice','alice@gmail.com', '123123'),
-    ('Bob','bob@gmail.com', '456456'),
-    ('Carol','carol@gmail.com', 'asdasd'),
-    ('Dan','dan@gmail.com', 'password123');
+    ('Alice','alice@gmail.com', '123123', 10),
+    ('Bob','bob@gmail.com', '456456', 5),
+    ('Carol','carol@gmail.com', 'asdasd', 4),
+    ('Dan','dan@gmail.com', 'password123', 2),
+    ('Edgar','edgar@gmail.com', 'password456', 1),
+    ('Frodo','frodo@gmail.com', 'password789', 5),
+    ('Gandalf','gandalf@gmail.com', 'greywizard', 0),
+    ('Horace','horace@gmail.com', 'mypwd', 2),
+    ('Iris','iris@gmail.com', 'iris', 1),
+    ('Jon','jon@gmail.com', '1221', 1);
 
 CREATE TABLE Cards (
     id SERIAL PRIMARY KEY,
