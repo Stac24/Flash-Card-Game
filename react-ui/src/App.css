@@ -10,8 +10,9 @@ li {
   padding-left: 10px;
 }
 
-#navbarSupportedContent {
-  transition: height 1.5s ease;
+.login-form {
+  max-width: 600px;
+  width: 90%;
 }
 
 .App {
