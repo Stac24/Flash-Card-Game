@@ -21,5 +21,6 @@ module.exports = {
     'react/prop-types': 'off',
     'jsx-a11y/no-autofocus': 'off',
     'no-alert': 'off',
+    'array-callback-return': 'off',
   },
 };
