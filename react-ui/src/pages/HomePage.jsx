@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from "react";
-import Flashcardgroup from "../components/Flashcardgroup";
+import React, { useEffect, useState } from 'react';
+import Flashcardgroup from '../components/Flashcardgroup';
 
 function HomePage() {
   const [flashcards, setCards] = useState([]);
 
   const loadCards = async () => {
-    const response = await fetch("/getcards");
+    const response = await fetch('/getcards');
     const data = await response.json();
     setCards(data);
   };
@@ -16,9 +16,9 @@ function HomePage() {
 
   return (
     <>
-      <h1>Home Page</h1>
+      <h1 className="text-light">Home Page</h1>
       <div className="container my-5">
-        <Flashcardgroup flashcards={flashcards}></Flashcardgroup>
+        <Flashcardgroup flashcards={flashcards} />
       </div>
     </>
   );

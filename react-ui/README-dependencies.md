@@ -27,4 +27,10 @@ npm test
 ## Dev Dependencies
 
 - [cypress](https://ghub.io/cypress): Cypress.io end to end testing tool
+- [eslint](https://ghub.io/eslint): An AST-based pattern checker for JavaScript.
+- [eslint-config-airbnb](https://ghub.io/eslint-config-airbnb): Airbnb&#39;s ESLint config, following our styleguide
+- [eslint-plugin-import](https://ghub.io/eslint-plugin-import): Import with sanity.
+- [eslint-plugin-jsx-a11y](https://ghub.io/eslint-plugin-jsx-a11y): Static AST checker for accessibility rules on JSX elements.
+- [eslint-plugin-react](https://ghub.io/eslint-plugin-react): React specific linting rules for ESLint
+- [eslint-plugin-react-hooks](https://ghub.io/eslint-plugin-react-hooks): ESLint rules for React Hooks
 

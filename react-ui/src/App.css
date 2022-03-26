@@ -2,26 +2,8 @@ html {
   background: #282c34;
 }
 
-a {
-  text-decoration: none !important;
-}
-
-li {
-  padding-left: 10px;
-}
-
-.login-form {
-  max-width: 600px;
-  width: 90%;
-}
-
 .App {
   text-align: center;
-}
-
-.container {
-  max-width: 900px;
-  margin: 1rem, 2rem;
 }
 
 .card-grid {

@@ -1,10 +1,10 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import { Navbar, Container, Nav } from "react-bootstrap";
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { Navbar, Container, Nav } from 'react-bootstrap';
 
-const Navigation = () => {
+function Navigation() {
   return (
-    <Navbar bg="dark" variant="dark" expand="md">
+    <Navbar className="mb-3" bg="dark" variant="dark" expand="md">
       <Container>
         <Navbar.Brand as={Link} to="/">
           <img src="./high-voltage.png" width="30" height="30" alt="" />
@@ -28,6 +28,6 @@ const Navigation = () => {
       </Container>
     </Navbar>
   );
-};
+}
 
 export default Navigation;
