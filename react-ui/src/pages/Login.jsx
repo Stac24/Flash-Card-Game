@@ -1,14 +1,21 @@
 import React from 'react';
 import axios from 'axios';
+import { useHistory } from 'react-router-dom';
 
-function Login() {
+function Login({ setAuth, isAuthenticated }) {
+  const history = useHistory();
+  if (isAuthenticated) {
+    history.push('./');
+  }
   const onClickDemo = async () => {
     try {
-      const { data: { token } } = await axios.post(`${process.env.REACT_APP_API_URL}/login`, {
+      const { data: { token, name } } = await axios.post(`${process.env.REACT_APP_API_URL}/login`, {
         email: 'alice@gmail.com',
         password: '123123',
       });
       localStorage.setItem('token', token);
+      localStorage.setItem('name', name);
+      setAuth(true);
     } catch (err) {
       console.log('Error:', err);
     }
