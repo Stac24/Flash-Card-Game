@@ -1,6 +1,18 @@
 import React from 'react';
+import axios from 'axios';
 
 function Login() {
+  const onClickDemo = async () => {
+    try {
+      const { data: { token } } = await axios.post(`${process.env.REACT_APP_API_URL}/login`, {
+        email: 'alice@gmail.com',
+        password: '123123',
+      });
+      localStorage.setItem('token', token);
+    } catch (err) {
+      console.log('Error:', err);
+    }
+  };
   return (
     <div className="container my-5 text-white login-form d-flex flex-row justify-content-center">
       <form className="form-signin" style={{ width: '400px' }}>
@@ -38,7 +50,7 @@ function Login() {
         </button>
         <br />
         <br />
-        <button className="btn btn-lg btn-success btn-block" type="button">
+        <button className="btn btn-lg btn-success btn-block" type="button" onClick={onClickDemo}>
           Demo
         </button>
         <p className="mt-5 mb-3 text-muted">&copy; 2022</p>
