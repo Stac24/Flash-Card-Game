@@ -7,6 +7,8 @@ import {
 function Navigation({ isAuthenticated, setAuth }) {
   const logout = () => {
     localStorage.removeItem('token');
+    localStorage.removeItem('name');
+    localStorage.removeItem('token');
     setAuth(false);
   };
   return (
@@ -24,12 +26,16 @@ function Navigation({ isAuthenticated, setAuth }) {
             <Nav.Link as={Link} to="/create">
               Create Flash Cards
             </Nav.Link>
+            <Nav.Link as={Link} to="/high-scores">
+              High Scores
+            </Nav.Link>
           </Nav>
           <Nav className="ms-auto">
             {isAuthenticated
               ? (
                 <NavDropdown title={`Welcome ${localStorage.getItem('name')}`} id="basic-nav-dropdown">
-                  <NavDropdown.Item onClick={logout} href="#action/3.1">Logout</NavDropdown.Item>
+                  <NavDropdown.Item as={Link} to="/dashboard">Dashboard</NavDropdown.Item>
+                  <NavDropdown.Item onClick={logout}>Logout</NavDropdown.Item>
                 </NavDropdown>
               ) : (
                 <Nav.Link as={Link} to="/login">

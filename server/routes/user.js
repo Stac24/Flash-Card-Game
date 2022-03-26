@@ -96,7 +96,7 @@ exports.updateStarsGems = async (req, res) => {
 
 exports.getHighScores = async (req, res) => {
   try {
-    const users = await User.findAll({ attributes: ['name', 'stars'] });
+    const users = await User.findAll({ attributes: ['name', 'stars', 'gems'] });
     users.sort((a, b) => b.stars - a.stars);
     res.status(200).send(users);
   } catch (err) {
