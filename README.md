@@ -12,7 +12,7 @@ The team is comprised of <a href='https://github.com/adnjoo'>Andrew</a>, <a href
 
 ## Goal: 
 
-Our goal was to gamify the learning experience of using flashcards. We aim to do this by awarding users 'stars' for completed games with a satisfactory score, as well as awarding 'rubies' for 2 day or more streaks.  
+Our goal was to gamify the learning experience of using flashcards. We aim to do this by awarding users 'stars' for completed games with a satisfactory score, as well as awarding 'gems' for 2 day or more streaks.  
 <br/>
 
 ## Quickstart:

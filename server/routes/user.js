@@ -1,8 +1,11 @@
+require('dotenv').config();
 const { Model, DataTypes } = require('@sequelize/core');
 // const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
+const { promisify } = require('util');
+
+const verify = promisify(jwt.verify);
 const { sequelize } = require('../models/index');
-require('dotenv').config();
 
 const oneMonth = 1000 * 60 * 60 * 24 * 30;
 
@@ -30,7 +33,7 @@ User.init(
     stars: {
       type: DataTypes.INTEGER,
     },
-    rubies: {
+    gems: {
       type: DataTypes.INTEGER,
     },
     password: {
@@ -70,5 +73,34 @@ exports.login = async (req, res) => {
   } catch (err) {
     console.log(err);
     res.status(401).json({ message: 'Incorrect credentials' });
+  }
+};
+
+exports.updateStarsGems = async (req, res) => {
+  try {
+    const {
+      token, stars, gems,
+    } = req.body;
+    if (!token) throw new Error('No token provided');
+    const { id } = await verify(token, process.env.SECRET);
+    let user = await User.findByPk(id);
+    console.log(user.dataValues.stars, user.dataValues.gems);
+    if (!user) throw new Error('User not found');
+    user.update({ stars: user.dataValues.stars + stars, gems: user.dataValues.gems + gems });
+    res.status(200).send('user updated');
+  } catch (err) {
+    console.log(err);
+    res.status(401).send('not authorized');
+  }
+};
+
+exports.getHighScores = async (req, res) => {
+  try {
+    const users = await User.findAll({ attributes: ['name', 'stars'] });
+    users.sort((a, b) => b.stars - a.stars);
+    res.status(200).send(users);
+  } catch (err) {
+    console.log(err);
+    res.status(400).send('error');
   }
 };

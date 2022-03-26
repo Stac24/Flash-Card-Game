@@ -3,6 +3,7 @@ require('dotenv').config({ path: path.resolve(__dirname, '../.env') });
 const express = require('express');
 const cors = require('cors');
 const cookieParser = require('cookie-parser');
+
 const cards = require('./routes/cards');
 const user = require('./routes/user');
 
@@ -14,10 +15,13 @@ app.use(express.json());
 app.use(cookieParser(process.env.SECRET));
 
 // cards
-app.get('/getcards', cards.getcards);
+app.get('/getcards', cards.getCards);
+app.post('/createcard', cards.createCard);
 // user
 app.post('/login', user.login);
-app.post('/createcard', cards.createcard);
+app.post('/update-stars-gems', user.updateStarsGems);
+// high scores
+app.get('/high-scores', user.getHighScores);
 
 // listening on port
 app.listen(port, () => {
