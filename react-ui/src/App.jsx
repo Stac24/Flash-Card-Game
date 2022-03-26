@@ -5,8 +5,7 @@ import HomePage from './pages/HomePage';
 import CreateCardPage from './pages/CreateCardPage';
 import Navigation from './components/Navigation';
 import Login from './pages/Login';
-
-
+import HighScoresPage from './pages/HighScoresPage';
 
 function App() {
   const [isAuthenticated, setisAuthenticated] = useState(false);
@@ -29,6 +28,9 @@ function App() {
             </Route>
             <Route path="/login" exact>
               <Login setAuth={setAuth} isAuthenticated={isAuthenticated} />
+            </Route>
+            <Route path="/create">
+              <HighScoresPage />
             </Route>
           </header>
         </Router>

@@ -72,3 +72,27 @@ exports.login = async (req, res) => {
     res.status(401).json({ message: 'Incorrect credentials' });
   }
 };
+
+exports.topTen = async (req,res) => {
+  try {
+    const users = await User.findAll({ raw: true});
+    console.log(cards)
+  }
+  catch (error) {
+    console.error('unable to access high scores')
+    return error;
+  }
+}
+
+/*
+exports.getcards = async (req, res) => {
+  try {
+    const cards = await Card.findAll({ raw: true });
+    // console.log(cards);
+    res.status(200).send(cards);
+  } catch (error) {
+    // console.error('Unable to connect to the database:', error);
+    return error;
+  }
+};
+*/

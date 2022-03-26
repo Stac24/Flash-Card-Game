@@ -18,6 +18,7 @@ app.get('/getcards', cards.getcards);
 // user
 app.post('/login', user.login);
 app.post('/createcard', cards.createcard);
+app.get('/topten', user.topTen)
 
 // listening on port
 app.listen(port, () => {
