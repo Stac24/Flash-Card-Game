@@ -1,10 +1,9 @@
-.App {
-  text-align: center;
+html {
+  background: #282c34;
 }
 
-.container {
-  max-width: 900px;
-  margin: 1rem, 2rem;
+.App {
+  text-align: center;
 }
 
 .card-grid {
