@@ -13,7 +13,9 @@ app.use(cors());
 app.use(express.json());
 app.use(cookieParser(process.env.SECRET));
 
+// cards
 app.get('/getcards', cards.getcards);
+// user
 app.post('/login', user.login);
 app.post('/createcard', cards.createcard);
 
