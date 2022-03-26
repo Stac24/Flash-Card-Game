@@ -29,10 +29,10 @@ exports.getcards = async (req, res) => {
 };
 
 exports.createcard = async (req, res) => {
-  const { front, back, cardset } = req.body;
+  const { front, back, cardSet } = req.body;
 
   try {
-    const card = await Card.create({ front, back, cardset });
+    const card = await Card.create({ front:front, back:back, cardset:cardSet, image_url: null  });
     return res.status(201).json(card);
   } catch (err) {
     // console.log(err);
