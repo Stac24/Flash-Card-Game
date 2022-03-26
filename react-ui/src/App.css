@@ -2,21 +2,8 @@ html {
   background: #282c34;
 }
 
-a {
-  text-decoration: none !important;
-}
-
-li {
-  padding-left: 10px;
-}
-
 .App {
   text-align: center;
-}
-
-.container {
-  max-width: 900px;
-  margin: 1rem, 2rem;
 }
 
 .card-grid {
