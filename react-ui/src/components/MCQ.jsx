@@ -56,9 +56,12 @@ function MCQ({ passCards, setPlay, isAuthenticated }) {
     const data = await axios.post(`${process.env.REACT_APP_API_URL}/update-stars-gems`, {
       token: localStorage.getItem('token'),
       stars: 10,
-      gems: 0,
+      gems: 1,
     });
     console.log(data);
+    if (data.data === 'stars and gems updated') {
+      toast('1 gem awarded :)');
+    }
   };
 
   const checkCorrect = (answer) => {
