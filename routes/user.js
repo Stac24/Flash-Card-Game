@@ -36,6 +36,12 @@ User.init(
     gems: {
       type: DataTypes.INTEGER,
     },
+    lastsignedin: {
+      type: 'TIMESTAMP',
+    },
+    firsttimegems: {
+      type: DataTypes.BOOLEAN,
+    },
     password: {
       type: DataTypes.STRING,
       validate: {
@@ -84,10 +90,18 @@ exports.updateStarsGems = async (req, res) => {
     if (!token) throw new Error('No token provided');
     const { id } = await verify(token, process.env.SECRET);
     let user = await User.findByPk(id);
-    console.log(user.dataValues.stars, user.dataValues.gems);
+    // console.log(user.dataValues.stars, user.dataValues.gems);
     if (!user) throw new Error('User not found');
-    user.update({ stars: user.dataValues.stars + stars, gems: user.dataValues.gems + gems });
-    res.status(200).send('user updated');
+    user.update({ stars: user.dataValues.stars + stars });
+    // if date is more than 24 hours timestamp, update gems
+    if (((Date.now() - Date.parse(user.dataValues.lastsignedin)) / 1000 / 60 / 60 / 24) > 1
+    || !user.dataValues.firsttimegems) {
+      // console.log('gems updated');
+      user.update({ gems: user.dataValues.gems + gems, firsttimegems: true });
+      res.status(200).send('stars and gems updated');
+      return;
+    }
+    res.status(200).send('stars updated');
   } catch (err) {
     console.log(err);
     res.status(401).send('not authorized');

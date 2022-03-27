@@ -18,22 +18,24 @@ CREATE TABLE Users (
     stars INTEGER DEFAULT 0,
     gems INTEGER DEFAULT 0,
     createdAt timestamp,
-    updatedAt timestamp
+    updatedAt timestamp,
+    lastsignedIn timestamp,
+    firstTimeGems boolean
 );
 
 INSERT INTO
-    Users (name, email, password, stars)
+    Users (name, email, password, stars, lastSignedIn, firsttimegems)
 VALUES
-    ('Alice','alice@gmail.com', '123123', 10),
-    ('Bob','bob@gmail.com', '456456', 5),
-    ('Carol','carol@gmail.com', 'asdasd', 4),
-    ('Dan','dan@gmail.com', 'password123', 2),
-    ('Edgar','edgar@gmail.com', 'password456', 1),
-    ('Frodo','frodo@gmail.com', 'password789', 5),
-    ('Gandalf','gandalf@gmail.com', 'greywizard', 0),
-    ('Horace','horace@gmail.com', 'mypwd', 2),
-    ('Iris','iris@gmail.com', 'iris', 1),
-    ('Jon','jon@gmail.com', '1221', 1);
+    ('Alice','alice@gmail.com', '123123', 10, NOW(), FALSE),
+    ('Bob','bob@gmail.com', '456456', 5, NOW(), FALSE),
+    ('Carol','carol@gmail.com', 'asdasd', 4, NOW(), FALSE),
+    ('Dan','dan@gmail.com', 'password123', 2, NOW(), FALSE),
+    ('Edgar','edgar@gmail.com', 'password456', 1, NOW(), FALSE),
+    ('Frodo','frodo@gmail.com', 'password789', 5, NOW(), FALSE),
+    ('Gandalf','gandalf@gmail.com', 'greywizard', 0, NOW(), FALSE),
+    ('Horace','horace@gmail.com', 'mypwd', 2, NOW(), FALSE),
+    ('Iris','iris@gmail.com', 'iris', 1, NOW(), FALSE),
+    ('Jon','jon@gmail.com', '1221', 1, NOW(), FALSE);
 
 CREATE TABLE Cards (
     id SERIAL PRIMARY KEY,
