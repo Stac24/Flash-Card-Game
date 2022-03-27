@@ -23,5 +23,6 @@ module.exports = {
     'no-alert': 'off',
     'array-callback-return': 'off',
     'no-unused-vars': 'off',
+    'no-param-reassign': 'off',
   },
 };

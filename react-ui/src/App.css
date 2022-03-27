@@ -18,6 +18,22 @@ html {
   left: auto;
 }
 
+.mw-400 {
+  max-width: 400px;
+}
+
+.mw-600 {
+  max-width: 600px;
+}
+
+.mcq {
+  cursor: pointer;
+}
+
+.mcq:hover {
+  outline: 1px solid #61dafb;
+}
+
 .App-header {
   background-color: #282c34;
   align-items: center;

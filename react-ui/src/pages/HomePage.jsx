@@ -35,7 +35,7 @@ function HomePage() {
           Filter by
         </Dropdown.Toggle>
         <Dropdown.Menu>
-          {cardset.length > 0 && cardset.map((ele) => (
+          {cardset.map((ele) => (
             <Dropdown.Item key={ele} onClick={() => filterCards(ele)}>{ele}</Dropdown.Item>
           ))}
         </Dropdown.Menu>

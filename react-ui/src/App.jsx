@@ -1,6 +1,8 @@
 import './App.css';
+
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import HomePage from './pages/HomePage';
 import CreateCardPage from './pages/CreateCardPage';
 import Navigation from './components/Navigation';
@@ -29,7 +31,7 @@ function App() {
               <CreateCardPage />
             </Route>
             <Route path="/play-round">
-              <PlayRound />
+              <PlayRound isAuthenticated={isAuthenticated} />
             </Route>
             <Route path="/high-scores" exact>
               <HighScores />
