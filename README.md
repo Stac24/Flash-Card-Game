@@ -8,6 +8,10 @@
   The team is comprised of <a href='https://github.com/adnjoo'>Andrew</a>, <a href='https://github.com/Stac24'>Stephanie</a>, <a href='https://github.com/calcOSU'>Charles</a>, and <a href='https://github.com/kyleaquino94'>Kyle</a>
   </p>
   <br/>
+  <a href="https://flashosu.netlify.app/">Try App</a>
+  <br/>
+  <br/>
+  <br/>
 <img width=400 src='./react-ui/assets/scrn1.png'> 
 <br/>
 <img width=400 src='./react-ui/assets/scrn2.png'> 
