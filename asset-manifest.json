@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/Flash-Card-Game/static/css/main.5c202cc6.css",
+    "main.js": "/Flash-Card-Game/static/js/main.a78a416f.js",
+    "index.html": "/Flash-Card-Game/index.html",
+    "main.5c202cc6.css.map": "/Flash-Card-Game/static/css/main.5c202cc6.css.map",
+    "main.a78a416f.js.map": "/Flash-Card-Game/static/js/main.a78a416f.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.5c202cc6.css",
+    "static/js/main.a78a416f.js"
+  ]
+}
