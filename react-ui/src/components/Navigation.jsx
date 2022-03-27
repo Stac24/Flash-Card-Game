@@ -36,7 +36,10 @@ function Navigation({ isAuthenticated, setAuth }) {
           <Nav className="ms-auto">
             {isAuthenticated
               ? (
-                <NavDropdown title={`Welcome ${localStorage.getItem('name')}`} id="basic-nav-dropdown">
+                <NavDropdown
+                  title={<img src="./abstract-user.png" alt="" width="30px" />}
+                  id="basic-nav-dropdown"
+                >
                   <NavDropdown.Item as={Link} to="/dashboard">Dashboard</NavDropdown.Item>
                   <NavDropdown.Item onClick={logout}>Logout</NavDropdown.Item>
                 </NavDropdown>

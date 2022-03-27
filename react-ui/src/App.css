@@ -13,11 +13,16 @@ html {
   gap: 1rem;
 }
 
+.dropdown-menu {
+  right: 0;
+  left: auto;
+}
+
 .App-header {
   background-color: #282c34;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  font-size: calc(10px + 1.2vmin);
   color: black;
 }
 
