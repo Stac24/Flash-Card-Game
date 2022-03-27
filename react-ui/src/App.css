@@ -4,6 +4,16 @@ html {
 
 .App {
   text-align: center;
+  background: #282c34;
+}
+
+.footer {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: #282c34;
+  text-align: center;
 }
 
 .card-grid {

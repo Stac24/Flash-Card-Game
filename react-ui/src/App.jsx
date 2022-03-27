@@ -10,6 +10,7 @@ import Login from './pages/Login';
 import Dashboard from './pages/Dashboard';
 import HighScores from './pages/HighScores';
 import PlayRound from './pages/PlayRound';
+import Footer from './components/Footer';
 
 function App() {
   const [isAuthenticated, setisAuthenticated] = useState(false);
@@ -19,33 +20,36 @@ function App() {
   };
 
   return (
-    <div className="App">
-      <header className="App-header">
-        <Router>
-          <Navigation setAuth={setAuth} isAuthenticated={isAuthenticated} />
-          <header className="App-header">
-            <Route path="/" exact>
-              <HomePage />
-            </Route>
-            <Route path="/create">
-              <CreateCardPage />
-            </Route>
-            <Route path="/play-round">
-              <PlayRound isAuthenticated={isAuthenticated} />
-            </Route>
-            <Route path="/high-scores" exact>
-              <HighScores />
-            </Route>
-            <Route path="/dashboard" exact>
-              <Dashboard isAuthenticated={isAuthenticated} />
-            </Route>
-            <Route path="/login" exact>
-              <Login setAuth={setAuth} isAuthenticated={isAuthenticated} />
-            </Route>
-          </header>
-        </Router>
-      </header>
-    </div>
+    <>
+      <div className="App">
+        <header className="App-header">
+          <Router>
+            <Navigation setAuth={setAuth} isAuthenticated={isAuthenticated} />
+            <header className="App-header">
+              <Route path="/" exact>
+                <HomePage />
+              </Route>
+              <Route path="/create">
+                <CreateCardPage />
+              </Route>
+              <Route path="/play-round">
+                <PlayRound isAuthenticated={isAuthenticated} />
+              </Route>
+              <Route path="/high-scores" exact>
+                <HighScores />
+              </Route>
+              <Route path="/dashboard" exact>
+                <Dashboard isAuthenticated={isAuthenticated} />
+              </Route>
+              <Route path="/login" exact>
+                <Login setAuth={setAuth} isAuthenticated={isAuthenticated} />
+              </Route>
+            </header>
+          </Router>
+        </header>
+      </div>
+      <Footer />
+    </>
   );
 }
 
