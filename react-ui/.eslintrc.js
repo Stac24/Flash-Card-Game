@@ -22,5 +22,7 @@ module.exports = {
     'jsx-a11y/no-autofocus': 'off',
     'no-alert': 'off',
     'array-callback-return': 'off',
+    'no-unused-vars': 'off',
+    'no-param-reassign': 'off',
   },
 };
